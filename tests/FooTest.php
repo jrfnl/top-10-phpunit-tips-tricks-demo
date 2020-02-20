@@ -19,6 +19,6 @@ class FooTest extends TestCase
     public function testStripQuotes()
     {
         $result = Foo::stripQuotes('"some text"');
-        $this->assertEquals('some text', $result);
+        $this->assertSame('some text', $result);
     }
 }
