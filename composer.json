@@ -1,0 +1,8 @@
+{
+    "name" : "jrfnl/top10_phpunit_tips_tricks_demo",
+    "description" : "Demo code for the Top 10 PHPUnit Tips & Tricks talk.",
+    "keywords" : [ "phpunit" ],
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
