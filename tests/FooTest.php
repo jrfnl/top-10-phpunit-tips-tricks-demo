@@ -16,6 +16,8 @@ class FooTest extends TestCase
      *
      * @dataProvider dataStripQuotes
      *
+     * @covers \PHPUnit_Demo\Foo::stripQuotes
+     *
      * @param string $input    The input string.
      * @param string $expected The expected function output.
      *

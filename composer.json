@@ -10,5 +10,16 @@
     },
     "autoload-dev": {
         "classmap": ["tests/"]
+    },
+    "scripts" : {
+        "test": [
+            "vendor/bin/phpunit --no-coverage"
+        ],
+        "coverage": [
+            "vendor/bin/phpunit"
+        ],
+        "coverage-local": [
+            "vendor/bin/phpunit --coverage-html ./build/coverage-html"
+        ]
     }
 }
