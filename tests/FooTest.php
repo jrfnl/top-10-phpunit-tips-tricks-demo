@@ -20,5 +20,11 @@ class FooTest extends TestCase
     {
         $result = Foo::stripQuotes('"some text"');
         $this->assertSame('some text', $result);
+
+        $result = Foo::stripQuotes("some 'text'");
+        $this->assertSame("some 'text'", $result);
+
+        $result = Foo::stripQuotes(false);
+        $this->assertSame('', $result);
     }
 }
