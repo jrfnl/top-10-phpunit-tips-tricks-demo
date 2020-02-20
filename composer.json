@@ -2,6 +2,9 @@
     "name" : "jrfnl/top10_phpunit_tips_tricks_demo",
     "description" : "Demo code for the Top 10 PHPUnit Tips & Tricks talk.",
     "keywords" : [ "phpunit" ],
+    "require-dev" : {
+        "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+    },
     "autoload": {
         "classmap": ["src/"]
     }
