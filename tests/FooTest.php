@@ -14,17 +14,32 @@ class FooTest extends TestCase
     /**
      * Test the Foo::stripQuotes() method.
      *
+     * @dataProvider dataStripQuotes
+     *
+     * @param string $input    The input string.
+     * @param string $expected The expected function output.
+     *
      * @return void
      */
-    public function testStripQuotes()
+    public function testStripQuotes($input, $expected)
     {
-        $result = Foo::stripQuotes('"some text"');
-        $this->assertSame('some text', $result, 'stripping quotes failed');
+        $result = Foo::stripQuotes($input);
+        $this->assertSame($expected, $result);
+    }
 
-        $result = Foo::stripQuotes("some 'text'");
-        $this->assertSame("some 'text'", $result, 'failed with quotes in string');
-
-        $result = Foo::stripQuotes(false);
-        $this->assertSame('', $result, 'failed with non-string input');
+    /**
+     * Data provider for the testStripQuotes() test.
+     *
+     * @see testStripQuotes()
+     *
+     * @return array[]
+     */
+    public function dataStripQuotes()
+    {
+        return [
+            ['"some text"', 'some text'],
+            ["some 'text'", "some 'text'"],
+            [false, ''],
+        ];
     }
 }
