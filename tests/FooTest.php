@@ -37,14 +37,14 @@ class FooTest extends TestCase
     public function dataStripQuotes()
     {
         return [
-            ['"some text"', 'some text'],
-            ["'some text'", 'some text'],
-            ["'some text", "'some text"],
-            ['some text"', 'some text"'],
-            ["some 'text'", "some 'text'"],
-            ['"some \'string\" with\' quotes"', 'some \'string\" with\' quotes'],
-            ['"\'quoted_name\'"', "'quoted_name'"],
-            [
+            'double quoted text' => ['"some text"', 'some text'],
+            'single quoted text' => ["'some text'", 'some text'],
+            'unmatched quotes start of string' => ["'some text", "'some text"],
+            'unmatched quotes end of string' => ['some text"', 'some text"'],
+            'quotes with quoted text within' => ["some 'text'", "some 'text'"],
+            'string with quotes within' => ['"some \'string\" with\' quotes"', 'some \'string\" with\' quotes'],
+            'string wrapped in quotes' => ['"\'quoted_name\'"', "'quoted_name'"],
+            'multi-line text string' => [
                 "'some text
 another line
 final line'",
@@ -52,9 +52,9 @@ final line'",
 another line
 final line",
             ],
-            ['', ''],
-            [false, ''],
-            [12.345, '12.345'],
+            'empty string' => ['', ''],
+            'not string input - bool' => [false, ''],
+            'not string input - float' => [12.345, '12.345'],
         ];
     }
 }
