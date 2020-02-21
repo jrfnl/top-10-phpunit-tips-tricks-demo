@@ -38,8 +38,23 @@ class FooTest extends TestCase
     {
         return [
             ['"some text"', 'some text'],
+            ["'some text'", 'some text'],
+            ["'some text", "'some text"],
+            ['some text"', 'some text"'],
             ["some 'text'", "some 'text'"],
+            ['"some \'string\" with\' quotes"', 'some \'string\" with\' quotes'],
+            ['"\'quoted_name\'"', "'quoted_name'"],
+            [
+                "'some text
+another line
+final line'",
+                "some text
+another line
+final line",
+            ],
+            ['', ''],
             [false, ''],
+            [12.345, '12.345'],
         ];
     }
 }
