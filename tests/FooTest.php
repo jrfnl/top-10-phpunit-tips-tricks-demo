@@ -19,12 +19,12 @@ class FooTest extends TestCase
     public function testStripQuotes()
     {
         $result = Foo::stripQuotes('"some text"');
-        $this->assertSame('some text', $result);
+        $this->assertSame('some text', $result, 'stripping quotes failed');
 
         $result = Foo::stripQuotes("some 'text'");
-        $this->assertSame("some 'text'", $result);
+        $this->assertSame("some 'text'", $result, 'failed with quotes in string');
 
         $result = Foo::stripQuotes(false);
-        $this->assertSame('', $result);
+        $this->assertSame('', $result, 'failed with non-string input');
     }
 }
